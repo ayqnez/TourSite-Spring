@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Добавить бронирование</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+<!-- Навигационная панель -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="#">Бронирование рейсов</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/welcome">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/bookings/listBookings">Список бронирований</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold active" href="#">Добавить бронирование</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- Основной контент -->
+<div class="container my-5">
+    <h2 class="text-center fw-bold mb-4">Добавить бронирование</h2>
+    <form action="/bookings" method="post" class="bg-light p-4 rounded shadow">
+        <div class="row mb-3">
+            <!-- Аэропорт вылета -->
+            <div class="col-md-6">
+                <label for="departureAirport" class="form-label">Аэропорт вылета</label>
+                <select id="departureAirport" name="departureAirport" class="form-select" required>
+                    <option value="">Выберите аэропорт</option>
+                    <option value="Nursultan Nazarbayev International Airport, Kazakhstan">Nursultan Nazarbayev International Airport, Kazakhstan</option>
+                    <option value="Almaty International Airport, Kazakhstan">Almaty International Airport, Kazakhstan</option>
+                    <option value="Shymkent International Airport, Kazakhstan">Shymkent International Airport, Kazakhstan</option>
+                    <option value="Aktau International Airport, Kazakhstan">Aktau International Airport, Kazakhstan</option>
+                    <option value="Aktobe International Airport, Kazakhstan">Aktobe International Airport, Kazakhstan</option>
+                    <option value="Karaganda Airport, Kazakhstan">Karaganda Airport, Kazakhstan</option>
+                    <option value="Pavlodar Airport, Kazakhstan">Pavlodar Airport, Kazakhstan</option>
+                    <option value="Kostanay Airport, Kazakhstan">Kostanay Airport, Kazakhstan</option>
+                    <option value="Uralsk Airport, Kazakhstan">Uralsk Airport, Kazakhstan</option>
+                    <option value="Taraz Airport, Kazakhstan">Taraz Airport, Kazakhstan</option>
+                    <option value="Kyzylorda Airport, Kazakhstan">Kyzylorda Airport, Kazakhstan</option>
+                    <option value="Petropavlovsk Airport, Kazakhstan">Petropavlovsk Airport, Kazakhstan</option>
+                    <option value="Semey Airport, Kazakhstan">Semey Airport, Kazakhstan</option>
+                    <!-- Другие аэропорты... -->
+                </select>
+            </div>
+            <!-- Аэропорт прибытия -->
+            <div class="col-md-6">
+                <label for="destinationAirport" class="form-label">Аэропорт прибытия</label>
+                <select id="destinationAirport" name="destinationAirport" class="form-select" required>
+                    <option value="">Выберите аэропорт</option>
+                    <option value="Heathrow Airport, United Kingdom">Heathrow Airport, United Kingdom</option>
+                    <option value="JFK International Airport, United States">JFK International Airport, United States</option>
+                    <option value="Changi Airport, Singapore">Changi Airport, Singapore</option>
+                    <option value="Incheon International Airport, South Korea">Incheon International Airport, South Korea</option>
+                    <option value="Tokyo Haneda Airport, Japan">Tokyo Haneda Airport, Japan</option>
+                    <option value="Dubai International Airport, United Arab Emirates">Dubai International Airport, United Arab Emirates</option>
+                    <option value="Charles de Gaulle Airport, France">Charles de Gaulle Airport, France</option>
+                    <option value="Amsterdam Airport Schiphol, Netherlands">Amsterdam Airport Schiphol, Netherlands</option>
+                    <option value="Munich Airport, Germany">Munich Airport, Germany</option>
+                    <option value="Barcelona-El Prat Airport, Spain">Barcelona-El Prat Airport, Spain</option>
+                    <!-- Другие аэропорты... -->
+                </select>
+            </div>
+        </div>
+        <div class="row mb-3">
+            <!-- Дата вылета -->
+            <div class="col-md-6">
+                <label for="departureDate" class="form-label">Дата вылета</label>
+                <input type="date" id="departureDate" name="departureDate" class="form-control" required>
+            </div>
+            <!-- Дата возвращения -->
+            <div class="col-md-6">
+                <label for="returnDate" class="form-label">Дата возвращения</label>
+                <input type="date" id="returnDate" name="returnDate" class="form-control">
+            </div>
+        </div>
+        <!-- Количество пассажиров -->
+        <div class="mb-3">
+            <label for="passengerCount" class="form-label">Количество пассажиров</label>
+            <input type="number" id="passengerCount" name="passengerCount" class="form-control" min="1" required>
+        </div>
+        <!-- Кнопки -->
+        <div class="d-flex justify-content-between">
+            <a href="/bookings/listBookings" class="btn btn-secondary">Отмена</a>
+            <button type="submit" class="btn btn-primary">Забронировать</button>
+        </div>
+    </form>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

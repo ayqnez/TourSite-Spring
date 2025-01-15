@@ -11,7 +11,7 @@
 <!-- Навигационная панель -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="#">Бронирование рейсов</a>
+        <a class="navbar-brand fw-bold" href="/welcome">Туристический Сайт</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -21,19 +21,32 @@
                     <a class="nav-link fw-semibold" href="/welcome">Главная</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold" href="/bookings/listBookings">Список бронирований</a>
+                    <a class="nav-link fw-semibold" href="/tours/list">Туры</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link fw-semibold active" href="#">Добавить бронирование</a>
+                    <a class="nav-link active fw-semibold" href="/bookings/addBooking">Авиабилеты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/addSupport">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/about">О нас</a>
                 </li>
             </ul>
         </div>
     </div>
 </nav>
 
+<!-- Заголовок -->
+<header class="bg-primary text-white text-center py-5 shadow">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Добавить бронирование</h1>
+        <p class="fs-5">Заполните форму ниже, чтобы забронировать свой следующий рейс!</p>
+    </div>
+</header>
+
 <!-- Основной контент -->
 <div class="container my-5">
-    <h2 class="text-center fw-bold mb-4">Добавить бронирование</h2>
     <form action="/bookings" method="post" class="bg-light p-4 rounded shadow">
         <div class="row mb-3">
             <!-- Аэропорт вылета -->
@@ -54,7 +67,6 @@
                     <option value="Kyzylorda Airport, Kazakhstan">Kyzylorda Airport, Kazakhstan</option>
                     <option value="Petropavlovsk Airport, Kazakhstan">Petropavlovsk Airport, Kazakhstan</option>
                     <option value="Semey Airport, Kazakhstan">Semey Airport, Kazakhstan</option>
-                    <!-- Другие аэропорты... -->
                 </select>
             </div>
             <!-- Аэропорт прибытия -->
@@ -72,7 +84,6 @@
                     <option value="Amsterdam Airport Schiphol, Netherlands">Amsterdam Airport Schiphol, Netherlands</option>
                     <option value="Munich Airport, Germany">Munich Airport, Germany</option>
                     <option value="Barcelona-El Prat Airport, Spain">Barcelona-El Prat Airport, Spain</option>
-                    <!-- Другие аэропорты... -->
                 </select>
             </div>
         </div>
@@ -94,12 +105,19 @@
             <input type="number" id="passengerCount" name="passengerCount" class="form-control" min="1" required>
         </div>
         <!-- Кнопки -->
-        <div class="d-flex justify-content-between">
-            <a href="/welcome" class="btn btn-secondary">Отмена</a>
-            <button type="submit" class="btn btn-primary">Забронировать</button>
+        <div class="text-center">
+            <a href="/welcome" class="btn btn-outline-secondary me-2">Отмена</a>
+            <button type="submit" class="btn btn-primary px-4 py-2">Забронировать</button>
         </div>
     </form>
+    <div class="text-center mt-4">
+        <a href="/bookings/listBookings" class="btn btn-outline-primary px-4 py-2">Список бронирований</a>
+    </div>
 </div>
+
+<footer class="bg-primary text-white text-center py-3 mt-5 shadow-lg">
+    <p class="mb-0">© 2025 Туристический Сайт. Все права защищены.</p>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>

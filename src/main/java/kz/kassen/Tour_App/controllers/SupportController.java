@@ -20,7 +20,8 @@ public class SupportController {
     }
 
     @GetMapping()
-    public String contactForm() {
+    public String contactForm(Model model) {
+        model.addAttribute("reviews", supportService.getAllSupports());
         return "support";
     }
 
@@ -32,7 +33,6 @@ public class SupportController {
         SupportModel supportModel = new SupportModel(name, email, message);
         supportService.saveSupport(supportModel);
 
-        model.addAttribute("message", message);
-        return "support";
+        return "redirect:/support";
     }
 }

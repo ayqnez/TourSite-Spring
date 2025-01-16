@@ -33,8 +33,9 @@ public class TourController {
     @PostMapping
     public String addTour(@RequestParam String title,
                           @RequestParam String description,
-                          @RequestParam double price) {
-        TourModel newTour = new TourModel(title, description, price);
+                          @RequestParam double price,
+                          @RequestParam String category) {
+        TourModel newTour = new TourModel(title, description, price, category);
         tourService.saveTour(newTour);
         return "redirect:/tours/list";
     }
@@ -44,8 +45,8 @@ public class TourController {
         return "addTour";
     }
 
-    @GetMapping("/filter")
-    public String filterTours(@RequestParam(required = false) Double minPrice,
+    @GetMapping("/filterByPrice")
+    public String filterByPrice(@RequestParam(required = false) Double minPrice,
                               @RequestParam(required = false) Double maxPrice,
                               Model model) {
         if (minPrice == null) minPrice = 0.0;
@@ -56,6 +57,13 @@ public class TourController {
         model.addAttribute("minPrice", minPrice);
         model.addAttribute("maxPrice", maxPrice);
 
-        return "filter";
+        return "filterByPrice";
+    }
+
+    @GetMapping("/filterByCategory")
+    public String filterByCategory(@RequestParam(required = false) String category, Model model) {
+        List<TourModel> filteredTours = tourService.getToursByCategory(category);
+        model.addAttribute("tours", filteredTours);
+        return "filterByCategory";
     }
 }

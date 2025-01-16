@@ -11,7 +11,7 @@
 <!-- Навигация -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/welcome">Туристический Сайт</a>
+        <a class="navbar-brand fw-bold" href="/welcome">Vasya Trip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -42,7 +42,8 @@
     <div class="container">
         <h1 class="display-4 fw-bold">Доступные Туры</h1>
         <p class="fs-5">Откройте новые горизонты вместе с нами!</p>
-        <a href="/tours/filter" class="btn btn-light text-primary border border-primary px-4 py-2 mt-3">Фильтровать Туры</a>
+        <a href="/tours/filterByPrice" class="btn btn-light text-primary border border-primary px-4 py-2 mt-3">Фильтровать Туры По Ценам</a>
+        <a href="/tours/filterByCategory" class="btn btn-light text-primary border border-primary px-4 py-2 mt-3">Фильтровать Туры По Категориям</a>
     </div>
 </header>
 
@@ -55,6 +56,7 @@
                 <th scope="col">#</th>
                 <th scope="col">Название</th>
                 <th scope="col">Описание</th>
+                <th scope="col">Категория</th>
                 <th scope="col">Цена</th>
                 <th scope="col">Действия</th>
             </tr>
@@ -65,6 +67,7 @@
                 <th scope="row" th:text="${tour.id}"></th>
                 <td th:text="${tour.title}"></td>
                 <td th:text="${tour.description}"></td>
+                <td th:text="${tour.category}"></td>
                 <td>
                     <span th:text="${tour.price} + '₸'" class="fw-bold text-success"></span>
                 </td>
@@ -80,7 +83,7 @@
 <!-- Футер -->
 <footer class="bg-primary text-white text-center py-4 shadow-lg">
     <div class="container">
-        <p class="mb-0">&copy; 2025 Туристический Сайт. Все права защищены.</p>
+        <p class="mb-0">&copy; 2025 Vasya Trip. Все права защищены.</p>
     </div>
 </footer>
 

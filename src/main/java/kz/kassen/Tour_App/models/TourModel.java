@@ -1,9 +1,6 @@
 package kz.kassen.Tour_App.models;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.DecimalMin;
 import jakarta.validation.constraints.Size;
 import org.antlr.v4.runtime.misc.NotNull;
@@ -26,11 +23,13 @@ public class TourModel {
     @DecimalMin("0.01")
     private Double price;
 
+    private String category;
 
-    public TourModel(String title, String description, Double price) {
+    public TourModel(String title, String description, Double price, String category) {
         this.title = title;
         this.description = description;
         this.price = price;
+        this.category = category;
     }
 
     public TourModel() {
@@ -67,5 +66,13 @@ public class TourModel {
 
     public void setPrice(Double price) {
         this.price = price;
+    }
+
+    public String getCategory() {
+        return category;
+    }
+
+    public void setCategory(String category) {
+        this.category = category;
     }
 }

@@ -9,4 +9,6 @@ import java.util.List;
 @Repository
 public interface TourRepository extends JpaRepository<TourModel, Long> {
     List<TourModel> findByPriceBetween(double min, double max);
+
+    List<TourModel> findByCategory(String category);
 }

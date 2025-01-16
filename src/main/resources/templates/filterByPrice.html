@@ -12,7 +12,7 @@
     <h1 class="text-center mb-4">Фильтрация туров</h1>
 
     <!-- Форма -->
-    <form action="/tours/filter" method="get" class="mb-4">
+    <form action="/tours/filterByPrice" method="get" class="mb-4">
         <div class="row mb-3">
             <div class="col-md-6">
                 <label for="minPrice" class="form-label">Минимальная цена:</label>
@@ -34,6 +34,7 @@
                 <li class="list-group-item" th:each="tour : ${tours}">
                     <h5 th:text="${tour.title}">Название</h5>
                     <p th:text="'Описание: ' + ${tour.description}">Описание</p>
+                    <p th:text="'Описание: ' + ${tour.category}">Категория</p>
                     <p th:text="'Цена: ' + ${tour.price} + ' KZT'">Цена</p>
                 </li>
             </ul>

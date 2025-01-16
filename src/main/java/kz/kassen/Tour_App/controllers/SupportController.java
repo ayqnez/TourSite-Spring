@@ -28,11 +28,10 @@ public class SupportController {
     @PostMapping()
     public String addSupport(@RequestParam String name,
                              @RequestParam String email,
-                             @RequestParam String message,
-                             Model model) {
+                             @RequestParam String message) {
         SupportModel supportModel = new SupportModel(name, email, message);
         supportService.saveSupport(supportModel);
 
-        return "redirect:/support";
+        return "redirect:/addSupport";
     }
 }

@@ -22,12 +22,12 @@ public class BookingController {
     public String listBookings(Model model) {
         List<BookingModel> bookings = bookingService.getAllBookings();
         model.addAttribute("bookings", bookings);
-        return "bookings/listBookings";
+        return "listBookings";
     }
 
     @GetMapping("/addBooking")
     public String addBooking() {
-        return "bookings/addBooking";
+        return "addBooking";
     }
 
     @PostMapping

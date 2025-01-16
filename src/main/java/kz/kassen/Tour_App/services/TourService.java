@@ -31,4 +31,8 @@ public class TourService {
     public List<TourModel> getToursByPriceBetween(Double minPrice, Double maxPrice) {
         return tourRepository.findByPriceBetween(minPrice, maxPrice);
     }
+
+    public List<TourModel> getToursByCategory(String category) {
+        return tourRepository.findByCategory(category);
+    }
 }

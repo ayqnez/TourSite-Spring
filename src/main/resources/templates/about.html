@@ -10,7 +10,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/welcome">Туристический Сайт</a>
+        <a class="navbar-brand fw-bold" href="/welcome">Vasya Trip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -39,28 +39,95 @@
 <header class="bg-primary text-white text-center py-5">
     <div class="container">
         <h1 class="display-4 fw-bold">О нас</h1>
-        <p class="fs-5">Узнайте больше о нашей компании и наших ценностях.</p>
+        <p class="fs-5">Мы — ваш лучший выбор для путешествий по всему миру.</p>
     </div>
 </header>
 
 <main class="container my-5">
-    <section>
-        <h2 class="fw-bold">Наша миссия</h2>
-        <p>Мы стремимся сделать путешествия доступными, удобными и незабываемыми для всех наших клиентов. Наша команда работает каждый день, чтобы предложить вам лучшие туры и комфортный сервис.</p>
+    <!-- Миссия -->
+    <section class="text-center mb-5">
+        <h2 class="fw-bold mb-4">Наша миссия</h2>
+        <p class="fs-5">Мы стремимся делать путешествия доступными и незабываемыми для всех наших клиентов. Мы верим, что путешествия могут изменить жизнь и открыть новые горизонты.</p>
     </section>
-    <section class="mt-4">
-        <h2 class="fw-bold">Почему выбирают нас?</h2>
-        <ul>
-            <li>Профессиональная команда</li>
-            <li>Индивидуальный подход к каждому клиенту</li>
-            <li>Большой выбор туров и направлений</li>
-            <li>Прозрачные цены без скрытых комиссий</li>
-        </ul>
+
+    <!-- Почему выбирают нас -->
+    <section class="mt-5">
+        <h2 class="fw-bold text-center mb-4">Почему выбирают нас?</h2>
+        <div class="row g-4">
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Профессионализм</h5>
+                        <p class="card-text">Наша команда состоит из опытных экспертов, готовых помочь вам в любое время.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Индивидуальный подход</h5>
+                        <p class="card-text">Мы учитываем все ваши пожелания и предпочтения при выборе тура.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Лучшие цены</h5>
+                        <p class="card-text">Мы предлагаем конкурентоспособные цены на все направления.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-3">
+                <div class="card shadow-sm h-100 text-center">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Широкий выбор</h5>
+                        <p class="card-text">Мы предлагаем широкий выбор туров для любого бюджета и предпочтений.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
+
+    <!-- Команда -->
+    <section class="mt-5">
+        <h2 class="fw-bold text-center mb-4">Наша команда</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <!-- Уменьшение изображения -->
+                    <img src="/images/ayan.png" class="card-img-top rounded-circle mx-auto mt-3" alt="Член команды" style="width: 120px; height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Касен Аян</h5>
+                        <p class="card-text">Главный Разработчик</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <img src="/images/vasya.png" class="card-img-top rounded-circle mx-auto mt-3" alt="Член команды" style="width: 120px; height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Вася Великая</h5>
+                        <p class="card-text">Генеральный Директор</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="card shadow-sm h-100 text-center">
+                    <img src="/images/chat.png" class="card-img-top rounded-circle mx-auto mt-3" alt="Член команды" style="width: 120px; height: 120px;">
+                    <div class="card-body">
+                        <h5 class="card-title fw-bold">Chat GPT</h5>
+                        <p class="card-text">Ассистент</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
 </main>
 
 <footer class="bg-primary text-white text-center py-3 shadow-lg">
-    <p class="mb-0">© 2025 Туристический Сайт. Все права защищены.</p>
+    <p class="mb-0">© 2025 Vasya Trip. Все права защищены.</p>
 </footer>
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js"></script>

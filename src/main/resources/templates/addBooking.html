@@ -51,40 +51,15 @@
         <div class="row mb-3">
             <!-- Аэропорт вылета -->
             <div class="col-md-6">
-                <label for="departureAirport" class="form-label">Аэропорт вылета</label>
-                <select id="departureAirport" name="departureAirport" class="form-select" required>
-                    <option value="">Выберите аэропорт</option>
-                    <option value="Nursultan Nazarbayev International Airport, Kazakhstan">Nursultan Nazarbayev International Airport, Kazakhstan</option>
-                    <option value="Almaty International Airport, Kazakhstan">Almaty International Airport, Kazakhstan</option>
-                    <option value="Shymkent International Airport, Kazakhstan">Shymkent International Airport, Kazakhstan</option>
-                    <option value="Aktau International Airport, Kazakhstan">Aktau International Airport, Kazakhstan</option>
-                    <option value="Aktobe International Airport, Kazakhstan">Aktobe International Airport, Kazakhstan</option>
-                    <option value="Karaganda Airport, Kazakhstan">Karaganda Airport, Kazakhstan</option>
-                    <option value="Pavlodar Airport, Kazakhstan">Pavlodar Airport, Kazakhstan</option>
-                    <option value="Kostanay Airport, Kazakhstan">Kostanay Airport, Kazakhstan</option>
-                    <option value="Uralsk Airport, Kazakhstan">Uralsk Airport, Kazakhstan</option>
-                    <option value="Taraz Airport, Kazakhstan">Taraz Airport, Kazakhstan</option>
-                    <option value="Kyzylorda Airport, Kazakhstan">Kyzylorda Airport, Kazakhstan</option>
-                    <option value="Petropavlovsk Airport, Kazakhstan">Petropavlovsk Airport, Kazakhstan</option>
-                    <option value="Semey Airport, Kazakhstan">Semey Airport, Kazakhstan</option>
-                </select>
+                <label for="search-from" class="form-label">Аэропорт вылета</label>
+                <input type="text" id="search-from" name="departureAirport" class="form-select" placeholder="Откуда..." />
+                <div id="suggestions-from" class="suggestions"></div>
             </div>
             <!-- Аэропорт прибытия -->
             <div class="col-md-6">
-                <label for="destinationAirport" class="form-label">Аэропорт прибытия</label>
-                <select id="destinationAirport" name="destinationAirport" class="form-select" required>
-                    <option value="">Выберите аэропорт</option>
-                    <option value="Heathrow Airport, United Kingdom">Heathrow Airport, United Kingdom</option>
-                    <option value="JFK International Airport, United States">JFK International Airport, United States</option>
-                    <option value="Changi Airport, Singapore">Changi Airport, Singapore</option>
-                    <option value="Incheon International Airport, South Korea">Incheon International Airport, South Korea</option>
-                    <option value="Tokyo Haneda Airport, Japan">Tokyo Haneda Airport, Japan</option>
-                    <option value="Dubai International Airport, United Arab Emirates">Dubai International Airport, United Arab Emirates</option>
-                    <option value="Charles de Gaulle Airport, France">Charles de Gaulle Airport, France</option>
-                    <option value="Amsterdam Airport Schiphol, Netherlands">Amsterdam Airport Schiphol, Netherlands</option>
-                    <option value="Munich Airport, Germany">Munich Airport, Germany</option>
-                    <option value="Barcelona-El Prat Airport, Spain">Barcelona-El Prat Airport, Spain</option>
-                </select>
+                <label for="search-to" class="form-label">Аэропорт прибытия</label>
+                <input type="text" id="search-to" class="form-select" name="destinationAirport" placeholder="Куда..." />
+                <div id="suggestions-to" class="suggestions"></div>
             </div>
         </div>
         <div class="row mb-3">
@@ -119,6 +94,97 @@
     <p class="mb-0">© 2025 Vasya Trip. Все права защищены.</p>
 </footer>
 
+<script>
+    // Массивы аэропортов
+    const kazakhstanAirports = [
+        "Almaty International Airport",
+        "Astana Nursultan Nazarbayev Airport",
+        "Karaganda Sary-Arka Airport",
+        "Shymkent International Airport",
+        "Aktau Airport",
+        "Atyrau Airport",
+        "Kostanay Airport",
+        "Pavlodar Airport",
+        "Taraz Zhambyl Airport",
+        "Ust-Kamenogorsk Airport",
+        "Kyzylorda Airport",
+        "Semey Airport",
+        "Petropavl Airport",
+        "Zhezkazgan Airport",
+        "Uralsk Ak Zhol Airport"
+    ];
+
+    const internationalAirports = [
+        "Heathrow Airport (London, UK)",
+        "John F. Kennedy International Airport (New York, USA)",
+        "Dubai International Airport (Dubai, UAE)",
+        "Frankfurt Airport (Frankfurt, Germany)",
+        "Singapore Changi Airport (Singapore)",
+        "Tokyo Haneda Airport (Tokyo, Japan)",
+        "Los Angeles International Airport (Los Angeles, USA)",
+        "Charles de Gaulle Airport (Paris, France)",
+        "Amsterdam Schiphol Airport (Amsterdam, Netherlands)",
+        "Beijing Capital International Airport (Beijing, China)",
+        "Hong Kong International Airport (Hong Kong)",
+        "Munich Airport (Munich, Germany)",
+        "Doha Hamad International Airport (Doha, Qatar)",
+        "Istanbul Airport (Istanbul, Turkey)",
+        "Seoul Incheon International Airport (Seoul, South Korea)",
+        "Sydney Kingsford Smith Airport (Sydney, Australia)",
+        "Toronto Pearson International Airport (Toronto, Canada)",
+        "San Francisco International Airport (San Francisco, USA)",
+        "Zurich Airport (Zurich, Switzerland)",
+        "Madrid Barajas Airport (Madrid, Spain)"
+    ];
+
+    // Функция для обработки ввода
+    function handleInput(event, suggestionsBox, airports) {
+        const query = event.target.value.toLowerCase();
+        clearSuggestions(suggestionsBox);
+        if (query.length > 0) {
+            const matches = findMatches(query, airports);
+            displaySuggestions(matches, suggestionsBox, event.target);
+        }
+    }
+
+    // Функция для поиска совпадений
+    function findMatches(query, airports) {
+        return airports.filter(airport => airport.toLowerCase().includes(query));
+    }
+
+    // Функция для отображения подсказок
+    function displaySuggestions(matches, suggestionsBox, inputElement) {
+        matches.forEach(match => {
+            const item = document.createElement('div');
+            item.textContent = match;
+            item.classList.add('suggestion-item');
+            item.addEventListener('click', () => selectSuggestion(match, inputElement, suggestionsBox));
+            suggestionsBox.appendChild(item);
+        });
+    }
+
+    // Функция для очистки подсказок
+    function clearSuggestions(suggestionsBox) {
+        suggestionsBox.innerHTML = '';
+    }
+
+    // Функция для выбора подсказки
+    function selectSuggestion(match, inputElement, suggestionsBox) {
+        inputElement.value = match;
+        clearSuggestions(suggestionsBox);
+    }
+
+    // Инициализация полей ввода
+    const searchFromInput = document.getElementById('search-from');
+    const suggestionsFromBox = document.getElementById('suggestions-from');
+    const searchToInput = document.getElementById('search-to');
+    const suggestionsToBox = document.getElementById('suggestions-to');
+
+    // Добавляем обработчики событий для каждого поля
+    searchFromInput.addEventListener('input', (event) => handleInput(event, suggestionsFromBox, kazakhstanAirports));
+    searchToInput.addEventListener('input', (event) => handleInput(event, suggestionsToBox, internationalAirports));
+
+</script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>

@@ -19,13 +19,14 @@ public class TourController {
 
     @GetMapping("/list")
     public String listTours(Model model) {
-        model.addAttribute("tours", tourService.getAllTours());
+        List<TourModel> tours = tourService.getAllTours();
+        model.addAttribute("tours", tours);
         return "list";
     }
 
     @GetMapping("/{id}")
     public String tourDetails(@PathVariable Long id, Model model) {
-       TourModel tour = tourService.getTourById(id).orElse(null);
+       TourModel tour = tourService.getTourById(id);
        model.addAttribute("tour", tour);
        return "details";
     }

@@ -1,5 +1,6 @@
 package kz.kassen.Tour_App.services;
 
+import kz.kassen.Tour_App.exception.exceptions.ResourceNotFoundException;
 import kz.kassen.Tour_App.models.TourModel;
 import kz.kassen.Tour_App.repo.TourRepository;
 import org.springframework.stereotype.Service;
@@ -20,8 +21,9 @@ public class TourService {
         return tourRepository.findAll();
     }
 
-    public Optional<TourModel> getTourById(Long id) {
-        return tourRepository.findById(id);
+    public TourModel getTourById(Long id) {
+        return tourRepository.findById(id)
+                .orElseThrow(() -> new ResourceNotFoundException());
     }
 
     public void saveTour(TourModel tour) {

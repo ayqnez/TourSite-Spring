@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vasya Trip</title>
+    <link rel="icon" href="/rounded_logo.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+
+<body>
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
+    <div class="container">
+        <a class="navbar-brand fw-bold" href="/">Vasya Trip</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/">Главная</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/tours/list">Туры</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/bookings/addBooking">Авиабилеты</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/support">Отзывы</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link fw-semibold" href="/about">О нас</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active fw-semibold" href="/contacts">Контакты</a>
+                </li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<!-- "Hero"-секция или заголовок страницы -->
+<header class="bg-primary text-white text-center py-5">
+    <div class="container">
+        <h1 class="display-4 fw-bold">Свяжитесь с нами</h1>
+        <p class="fs-5">Мы всегда готовы ответить на ваши вопросы и помочь с выбором тура</p>
+        <!-- Кнопка, скроллящая к блоку контактов -->
+        <a href="#contact-section" class="btn btn-light btn-lg">Написать нам</a>
+    </div>
+</header>
+
+<!-- Основной контент страницы -->
+<main class="container my-5">
+
+    <!-- Блок информации о компании -->
+    <section class="mb-5 text-center">
+        <h2 class="fw-bold mb-4">Офис Vasya Trip</h2>
+        <p class="fs-5 text-muted">
+            Добро пожаловать в наш уютный офис! Мы находимся в самом центре города и будем рады встретиться с вами в
+            любой удобный для вас день.
+        </p>
+    </section>
+
+    <!-- Секция контактов и формы (ID, на который ведёт ссылка из меню и кнопки) -->
+    <section id="contact-section" class="mt-5">
+        <div class="row g-4">
+            <!-- Контактная информация -->
+            <div class="col-md-4">
+                <h3 class="fw-bold mb-3">Контактная информация</h3>
+                <ul class="list-unstyled fs-5">
+                    <li><strong>Телефон:</strong> +7 (999) 123-45-67</li>
+                    <li><strong>Email:</strong> info@vasyatrip.ru</li>
+                    <li><strong>Адрес:</strong> г. Москва, ул. Примерная, д. 10</li>
+                </ul>
+                <p class="text-muted">
+                    Работаем ежедневно с 9:00 до 20:00 (МСК)
+                </p>
+            </div>
+
+            <!-- Форма обратной связи -->
+            <div class="col-md-8">
+                <h3 class="fw-bold mb-4">Напишите нам</h3>
+                <form action="/contacts" method="post">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Ваше имя</label>
+                        <input type="text" class="form-control" id="name" name="name" placeholder="Введите ваше имя" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label">Ваш Email</label>
+                        <input type="email" class="form-control" id="email" name="email" placeholder="Введите ваш email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label">Сообщение</label>
+                        <textarea class="form-control" id="message" rows="4" name="message" placeholder="Ваше сообщение" required
+                        ></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Отправить</button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Футер -->
+<footer class="bg-primary text-white text-center py-3 mt-5">
+    <p class="mb-0">© 2025 Vasya Trip. Все права защищены.</p>
+</footer>
+
+</body>

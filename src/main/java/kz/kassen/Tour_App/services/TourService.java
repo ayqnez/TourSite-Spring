@@ -23,7 +23,7 @@ public class TourService {
 
     public TourModel getTourById(Long id) {
         return tourRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFoundException());
+                .orElseThrow(ResourceNotFoundException::new);
     }
 
     public void saveTour(TourModel tour) {

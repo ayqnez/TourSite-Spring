@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
-@RequestMapping("/addSupport")
+@RequestMapping("/support")
 public class SupportController {
 
     private final SupportService supportService;
@@ -32,6 +32,6 @@ public class SupportController {
         SupportModel supportModel = new SupportModel(name, email, message);
         supportService.saveSupport(supportModel);
 
-        return "redirect:/addSupport";
+        return "redirect:/support";
     }
 }

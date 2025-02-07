@@ -25,6 +25,7 @@ public class TourService {
         return tourRepository.findById(id)
                 .orElseThrow(ResourceNotFoundException::new);
     }
+    
 
     public void saveTour(TourModel tour) {
         tourRepository.save(tour);

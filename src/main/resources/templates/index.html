@@ -9,14 +9,16 @@
 </head>
 
 <body>
+
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary shadow">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/">Vasya Trip</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto">
+        <div class="collapse navbar-collapse d-flex justify-content-between align-items-center" id="navbarNav">
+            <!-- Центральные ссылки навигации -->
+            <ul class="navbar-nav mx-auto">
                 <li class="nav-item">
                     <a class="nav-link active fw-semibold" href="/">Главная</a>
                 </li>
@@ -36,9 +38,24 @@
                     <a class="nav-link fw-semibold" href="/contacts">Контакты</a>
                 </li>
             </ul>
+
+            <!-- Профиль пользователя справа -->
+            <ul class="navbar-nav">
+                <li class="nav-item dropdown" th:if="${username}">
+                    <a class="nav-link dropdown-toggle fw-semibold" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        Привет, <span th:text="${username}">Гость</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+                        <li><a class="dropdown-item" href="/profile">Мой профиль</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item" href="/logout">Выйти</a></li>
+                    </ul>
+                </li>
+            </ul>
         </div>
     </div>
 </nav>
+
 
 <!-- Hero-секция без изображения, только цвета Bootstrap -->
 <header class="bg-primary text-white text-center py-5">
@@ -137,11 +154,10 @@
 </footer>
 
 <!-- Скрипты Bootstrap -->
-<script
-        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-yqKprJf5CRDbRMnDzfVYl0RNOuIMKj+/4ZXW/mlOJ5NkOX97pRqzZ+jsEG8Ea9JO"
-        crossorigin="anonymous">
-</script>
+<!-- Скрипты Bootstrap и Popper.js -->
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 </html>
